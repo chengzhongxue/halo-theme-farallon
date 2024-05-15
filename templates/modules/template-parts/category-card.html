@@ -1,0 +1,11 @@
+<div class="category--card__list" th:if="${theme.config.singluar.category_card && not #lists.isEmpty(post.categories)}">
+    <a th:each="category,iter : ${post.categories}" th:href="@{${category.status.permalink}}" class="category--card" >
+        <div class="category--card__image">
+            <img th:if="${not #strings.isEmpty(category.spec.cover)}" th:src="${category.spec.cover}" th:alt="${category.spec.displayName}">
+        </div>
+        <div class="category--card__content">
+            <div class="category--card__title" th:text="${category.spec.displayName}"></div>
+            <div class="category--card__description"></div>
+        </div>
+    </a>
+</div>

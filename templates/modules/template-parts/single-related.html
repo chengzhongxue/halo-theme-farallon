@@ -1,0 +1,27 @@
+<th:block th:if="${theme.config.singluar.related && not #lists.isEmpty(post.categories)}"
+    th:with="recommandPosts = ${postFinder.listByCategory(1,7,post.categories.get(0).metadata.name)},containsTitle = ${#strings.contains(recommandPosts,post.spec.title)}">
+    <th:block th:if="${recommandPosts.total>1}">
+        <h3 class="related--posts__title">相关文章</h3>
+        <div class="post--single__related">
+            <th:block th:each="recommandPost,iterStat :${recommandPosts}"
+                th:if="${not #strings.equals(post.spec.title, recommandPost.spec.title)}">
+                <div class="post--single__related__item" th:if="${!containsTitle ? iterStat.index <6 : true}">
+                    <a th:href="@{${recommandPost.status.permalink}}" th:aria-label="${recommandPost.spec.title}">
+                        <div class="post--single__related__item__img">
+                            <img th:if="${not #strings.isEmpty(recommandPost.spec.cover)}" th:src="${recommandPost.spec.cover}" class="cover"
+                                th:alt="${recommandPost.spec.title}">
+                        </div>
+                        <div class="post--single__related__item__title" th:text="${recommandPost.spec.title}"></div>
+                        <div class="meta">
+                            <time th:datetime="${recommandPost.spec.publishTime}" class="humane--time">
+                                <th:block
+                                    th:replace="~{modules/widgets/time :: time(${recommandPost.spec.publishTime.toEpochMilli()})}">
+                                </th:block>
+                            </time>
+                        </div>
+                    </a>
+                </div>
+            </th:block>
+        </div>
+    </th:block>
+</th:block>

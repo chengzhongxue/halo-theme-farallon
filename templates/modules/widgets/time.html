@@ -1,0 +1,27 @@
+<th:block th:fragment="time(toEpochMilli)"
+th:with="days=${(new java.util.Date().getTime()-toEpochMilli)/86400000}">
+    <th:block th:if="${days == 0}">
+        <th:block th:with="minute=${(new java.util.Date().getTime()-toEpochMilli)/60000}">
+            <th:block th:if="${minute >= 1  && minute < 60 }">
+                [[${minute}+'分钟前']]
+            </th:block>
+            <th:block th:if="${minute >= 60  && minute < 1440 }">
+                <th:block>
+                    [[${minute/60}+'小时前']]
+                </th:block>
+            </th:block>
+        </th:block>
+    </th:block>
+    <th:block th:if="${days < 7 && days >= 1}">
+        [[${days}+'日前']]
+    </th:block>
+    <th:block th:if="${days <= 30 && days >= 7  }">
+        [[${days/7}+'周前']]
+    </th:block>
+    <th:block th:if="${days <= 365 && days > 30  }">
+        [[${days/30}+'月前']]
+    </th:block>
+    <th:block th:if="${days > 365  }">
+        [[${days/365}+'年前']]
+    </th:block>
+</th:block>

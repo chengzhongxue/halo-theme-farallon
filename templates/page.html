@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+    th:replace="~{modules/layout :: layout(_content = ~{::content},_title = ${singlePage.spec.title})}">
+<th:block th:fragment="content">
+    <main class="site--main">
+        <article class="post--single" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <header class="u-textAlignCenter">
+                <h2 class="post--single__title" itemprop="headline" th:text="${singlePage.spec.title}"></h2>
+            </header>
+            <div class="post__single__content graph" itemprop="articleBody" th:utext="${singlePage.content.content}"></div>
+            <th:block th:replace="~{modules/widgets/halo-comment :: halo-comment(name=${singlePage.metadata.name},kind='SinglePage',group='content.halo.run')}"></th:block>
+        </article>
+    </main>
+</th:block>
+
+</html>

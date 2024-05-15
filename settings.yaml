@@ -1,13 +1,208 @@
 apiVersion: v1alpha1
 kind: Setting
 metadata:
-  name: theme-vite-starter-setting
+  name: theme-farallon-setting
 spec:
   forms:
-    - group: styles
-      label: 样式
+    - group: basic
+      label: 基础设置
       formSchema:
-        - $formkit: color
-          name: background_color
-          label: 背景颜色
-          value: "#f2f2f2"
+        - $formkit: textarea
+          name: description
+          label: 站点描述
+        - $formkit: code
+          name: headcode
+          label: 头部代码
+          help: 你可以向标签中添加内容，比如站点验证标签等等。
+          height: 200px
+          language: html
+        - $formkit: attachment
+          name: logo
+          label: Logo
+          help: Logo地址，最好是方形的。
+          accepts:
+            - "image/*"
+        - $formkit: attachment
+          name: favicon
+          label: Favicon
+          help: Favicon 地址
+          accepts:
+            - "image/*"
+        - $formkit: text
+          name: title_sep
+          label: 标题分隔符
+          value: "-"
+          help: 默认 -
+        # - $formkit: text
+        #   name: gravatar_proxy
+        #   label: 头像代理
+        #   value: cravatar.cn
+        #   help: 头像代理域名，比如cravatar.cn
+        #   validation: required
+    - group: feature
+      label: 功能设置
+      formSchema:
+        - $formkit: checkbox
+          name: darkmode
+          label: 暗黑模式
+          value: false
+          help: 开启暗黑模式
+        - $formkit: attachment
+          name: default_thumbnail
+          label: 缺省缩略图
+          help: 缺省缩略图地址
+          accepts:
+            - "image/*"
+        - $formkit: checkbox
+          name: back2top
+          label: 返回顶部
+          value: false
+          help: 开启返回顶部
+        # - $formkit: checkbox
+        #   name: loadmore
+        #   label: 加载更多
+        #   value: false
+        #   help: 开启加载更多
+        - $formkit: checkbox
+          name: home_author
+          label: 作者信息
+          value: false
+          help: 首页展示作者信息
+        - $formkit: checkbox
+          name: home_cat
+          label: 分类信息
+          value: false
+          help: 首页展示分类信息
+        - $formkit: checkbox
+          name: home_like
+          label: 文章点赞
+          value: false
+          help: 首页展示文章点赞数量
+        - $formkit: checkbox
+          name: hide_home_cover
+          label: 隐藏首页缩略图
+          value: false
+    - group: singluar
+      label: 文章设置
+      formSchema:
+        - $formkit: checkbox
+          name: bio
+          label: 作者信息
+          value: false
+          help: 开启作者信息
+        - $formkit: checkbox
+          name: author_sns
+          label: 作者SNS图标
+          value: false
+          help: 展示作者SNS图标，作者信息关闭时不会展示。
+        - $formkit: checkbox
+          name: related
+          label: 相关文章
+          value: false
+          help: 开启相关文章
+        - $formkit: checkbox
+          name: postlike
+          label: 文章点赞
+          value: false
+          help: 开启文章点赞
+        - $formkit: checkbox
+          name: post_navigation
+          label: 文章导航
+          value: false
+          help: 开启文章导航
+        - $formkit: checkbox
+          name: show_copylink
+          label: 复制文章链接
+          value: false
+          help: 开启复制文章链接
+        - $formkit: checkbox
+          name: category_card
+          label: 分类卡片
+          value: false
+          help: 在文章结尾展示卡片信息
+        - $formkit: checkbox
+          name: toc
+          label: 文章目录
+          value: false
+          help: 开启文章目录
+    - group: meta
+      label: 样式社会化设置
+      formSchema:
+        - $formkit: checkbox
+          name: footer_sns
+          label: 底部SNS图标
+          value: false
+          help: 在底部展示SNS图标，开始时底部菜单不会展示
+        - $formkit: text
+          name: telegram
+          label: 电报
+          help: 电报链接
+        - $formkit: text
+          name: email
+          label: 电子邮箱
+          help: 你的电子邮箱地址
+        - $formkit: text
+          name: instagram
+          label: Instagram
+          help: Instagram 链接
+        - $formkit: text
+          name: twitter
+          label: 推特
+          help: 推特链接
+        - $formkit: text
+          name: github
+          label: Github
+          help: Github 地址
+        - $formkit: text
+          name: discord
+          label: Discord
+          help: Discord 地址
+        - $formkit: text
+          name: mastodon
+          label: 长毛象
+          help: 长毛象地址
+        - $formkit: code
+          name: custom_sns
+          label: 自定义
+          height: 200px
+          help: 自定义链接，使用html 格式。
+          language: html
+    - group: custom
+      label: 自定义设置
+      formSchema:
+        - $formkit: code
+          name: topbar
+          label: 首页顶部
+          height: 200px
+          help: 自定义代码
+          language: html
+        - $formkit: code
+          name: footerbar
+          label: 首页底部
+          height: 200px
+          help: 自定义代码
+          language: html
+        - $formkit: code
+          name: singlefooterbar
+          label: 文章详情页底部
+          height: 200px
+          help: 自定义代码
+          language: html
+        - $formkit: code
+          name: css
+          label: CSS
+          help: 自定义CSS
+          height: 200px
+          language: css
+        - $formkit: code
+          name: javascript
+          label: Javascript
+          help: 自定义 Javascript
+          height: 200px
+          language: javascript
+        - $formkit: code
+          name: copyright
+          label: 版权信息
+          height: 200px
+          help: 自定义底部信息
+          language: html

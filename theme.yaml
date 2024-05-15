@@ -1,21 +1,27 @@
 apiVersion: theme.halo.run/v1alpha1
 kind: Theme
 metadata:
-  name: theme-vite-starter
+  name: theme-farallon
 spec:
-  displayName: Vite Starter
+  displayName: Farallon
   author:
-    name: Halo
-    website: https://github.com/halo-dev
-  description: A development starter theme with Vite Ecosystem for Halo
-  logo: https://www.halo.run/logo
-  homepage: https://github.com/halo-dev/theme-vite-starter#readme
-  repo: https://github.com/halo-dev/theme-vite-starter
-  issues: https://github.com/halo-dev/theme-vite-starter/issues
-  settingName: "theme-vite-starter-setting"
-  configMapName: "theme-vite-starter-configMap"
+    name: 困困鱼
+    website: https://github.com/chengzhongxue
+  customTemplates:
+    category:
+      - name: 图片分类
+        description: 
+        screenshot:
+        file: category-travel.html
+  description: Farallon是一个简单的单列halo主题，具有完美的性能和优雅的设计
+  logo: /themes/theme-farallon/assets/images/favicon.png
+  homepage: https://github.com/chengzhongxue/halo-theme-farallon
+  repo: https://github.com/chengzhongxue/halo-theme-farallon
+  issues: https://github.com/chengzhongxue/halo-theme-farallon/issues
+  settingName: "theme-farallon-setting"
+  configMapName: "theme-farallon-configMap"
   version: 1.0.0
-  requires: ">=2.0.0"
+  requires: ">=2.15.0"
   license:
     - name: "GPL-3.0"
       url: "https://github.com/halo-dev/theme-vite-starter/blob/main/LICENSE"

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+    th:replace="~{modules/layout :: layout(_content = ~{::content},_title = '404')}">
+<th:block th:fragment="content">
+    <section class="template--404">
+        <div class="error--text">404</div>
+        <div class="error--posts">
+            <th:block th:replace="~{modules/template-parts/content-error :: content-error}"></th:block>
+        </div>
+    </section>
+</th:block>
+
+</html>

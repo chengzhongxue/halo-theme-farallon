@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+    th:replace="~{modules/layout :: layout(_content = ~{::content},_title = ${title})}">
+<th:block th:fragment="content">
+    <link rel="stylesheet" id="wpd-css-css" th:href="@{/plugins/plugin-douban/assets/static/db.min.css}" type="text/css"
+        media="screen">
+    <main class="site--main">
+        <article class="post--single__douban">
+            <header class="u-textAlignCenter">
+                <h2 class="post--single__title" itemprop="headline" th:text="${title}"></h2>
+            </header>
+            <div class="post__single__content">
+                <section class="db--container">
+                    <nav class="db--nav">
+                        <div th:each="type : ${types}" class="db--navItem JiEun"
+                            th:classappend="${type.key == 'movie' ? 'current' : ''}" th:data-type="${type.key}"
+                            th:text="${type.key}"></div>
+                    </nav>
+                    <div class="db--genres"></div>
+                    <div class="db--type">
+                        <div class="db--typeItem" data-status="mark">想看</div>
+                        <div class="db--typeItem" data-status="doing">在看</div>
+                        <div class="db--typeItem is-active" data-status="done">看过</div>
+                    </div>
+                    <div class="db--list db--list__card" data-type="movie">
+
+                    </div>
+                    <div class="block-more block-more__centered">
+                        <div class="lds-ripple u-hide">
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </article>
+    </main>
+    <script th:src="@{/plugins/plugin-douban/assets/static/db.min.js?v={version}(version='1.1.4')}"></script>
+</th:block>
+
+</html>

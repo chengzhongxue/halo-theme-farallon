@@ -1,14 +1,80 @@
 <!DOCTYPE html>
-<html lang="en" th:fragment="html (content)">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title th:text="${site.title}"></title>
-    <link rel="stylesheet" th:href="@{/assets/dist/style.css}" href="./assets/dist/style.css" />
-    <script th:src="@{/assets/dist/main.iife.js}"></script>
-  </head>
-  <body th:style="'background-color: '+${theme.config.styles.background_color}">
-    <th:block th:replace="${content}" />
-  </body>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:fragment="layout(_content,_title)"
+  th:with="site_title = ${not #strings.isEmpty(_title) ?  _title+' '+theme.config.basic.title_sep+' '+site.title  :  #strings.isEmpty(site.subtitle) ? site.title :  site.title +' - ' +site.subtitle }">
+
+<head th:replace="~{modules/head :: head}"></head>
+
+<body>
+  <script th:if="${theme.config.feature.darkmode}">
+    window.DEFAULT_THEME = "auto";
+    if (localStorage.getItem("theme") == null) {
+      localStorage.setItem("theme", window.DEFAULT_THEME);
+    }
+    if (localStorage.getItem("theme") == "dark") {
+      document.querySelector("body").classList.add("dark");
+    }
+    if (localStorage.getItem("theme") == "auto") {
+      document.querySelector("body").classList.add("auto");
+    }
+  </script>
+  <div class="main">
+    <header class="site--header">
+      <a href="/" class="site--url" th:aria-label="${site.title}">
+        <img
+          th:src="@{${not #strings.isEmpty(theme.config.basic.logo) ? theme.config.basic.logo : '/assets/images/avatar.jpeg'}}"
+          class="avatar" th:alt="${site.title}" />
+        <span class="u-xs-show" th:text="${site.title}"></span>
+      </a>
+      <div class="site--header__center">
+        <div class="inner">
+          <ul id="menu-top" class="topNav-items" th:with="topMenu = ${menuFinder.getPrimary()}">
+            <th:block th:each="menuItem,iterStat : ${topMenu.menuItems}">
+              <li th:id="|menu-item-${iterStat.count}|" class="menu-item">
+                <a th:href="@{${menuItem.status.href}}" aria-current="page"
+                  th:text="${menuItem.status.displayName}"></a>
+              </li>
+            </th:block>
+          </ul>
+        </div>
+      </div>
+      <svg class="svgIcon" width="25" height="25" data-action="show-search"
+        th:if="${pluginFinder.available('PluginSearchWidget')}" onclick="SearchWidget.open()">
+        <path
+          d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z">
+        </path>
+      </svg>
+    </header>
+    <th:block th:replace="${_content}" />
+    <th:block th:replace="~{modules/footer}" />
+  </div>
+  <script type="text/javascript" id="farallon-script-js-extra">
+    var obvInit = {
+      "post_id": "[(${post.metadata.name})]",
+      "darkmode": [(${theme.config.feature.darkmode})],
+      "version": "[(${theme.spec.version})]",
+      "hide_home_cover": [(${theme.config.feature.hide_home_cover})],
+      "timeFormat": {
+        "second": "\u79d2\u524d",
+        "seconds": "\u79d2\u524d",
+        "minute": "\u5206\u949f\u524d",
+        "minutes": "\u5206\u949f\u524d",
+        "hour": "\u5c0f\u65f6\u524d",
+        "hours": "\u5c0f\u65f6\u524d",
+        "day": "\u5929\u524d",
+        "days": "\u5929\u524d",
+        "week": "\u5468\u524d",
+        "weeks": "\u5468\u5929",
+        "month": "\u4e2a\u6708\u524d",
+        "months": "\u4e2a\u6708\u524d",
+        "year": "\u5e74\u524d",
+        "years": "\u5e74\u524d"
+      }
+    };
+  </script>
+  <script type="text/javascript" th:src="@{/assets/js/app.min.js?v={version}(version=${theme.spec.version})}"
+    id="farallon-script-js"></script>
+  <script type="text/javascript" id="farallon-script-js-after" th:if="${not #strings.isEmpty(theme.config.custom.javascript)}"
+    th:utext="${theme.config.custom.javascript}"></script>
+</body>
+
 </html>

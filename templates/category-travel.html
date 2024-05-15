@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+    th:replace="~{modules/layout :: layout(_content = ~{::content},_title = ${category.spec.displayName})}">
+<th:block th:fragment="content">
+    <header class="archive-header">
+        <img th:if="${not #strings.isEmpty(category.spec.cover)}" th:src="${category.spec.cover}"
+            th:alt="${category.spec.displayName}" class="archive-header-image">
+        <div class="archive-header-content">
+            <h1 class="archive-title" th:text="${category.spec.displayName}"></h1>
+            <div th:if="${not #strings.isEmpty(category.spec.description)}" class="taxonomy-description"
+                th:text="${category.spec.description}"></div>
+        </div>
+    </header>
+    <main class="site--main">
+
+        <div class="post--cards">
+            <th:block th:replace="~{modules/template-parts/content-card :: content-card}"></th:block>
+        </div>
+
+        <th:block th:replace="~{modules/template-parts/pagination :: pagination('/categories/',${posts})}"></th:block>
+    </main>
+</th:block>
+
+</html>

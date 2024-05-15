@@ -1,0 +1,17 @@
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title th:text="${site_title}"></title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" th:if="${not #strings.isEmpty(theme.config.basic.description)}"
+        th:content="${theme.config.basic.description}">
+    <link rel="stylesheet" id="farallon-style-css"
+        th:href="@{/assets/css/app.min.css?v={version}(version=${theme.spec.version})}" type="text/css" media="all">
+    <style id="farallon-style-inline-css" type="text/css" th:if="${not #strings.isEmpty(theme.config.custom.css)}"
+        th:utext="${theme.config.custom.css}"></style>
+    <th:block th:if="${not #strings.isEmpty(theme.config.basic.headcode)}"
+    th:utext="${theme.config.basic.headcode}"></th:block>
+    <link type="image/vnd.microsoft.icon"
+        th:href="@{${not #strings.isEmpty(theme.config.basic.favicon) ? theme.config.basic.favicon : '/assets/images/favicon.png'}}"
+        rel="shortcut icon">
+</head>

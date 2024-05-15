@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+    th:replace="~{modules/layout :: layout(_content = ~{::content},_title = '友链')}">
+<th:block th:fragment="content">
+    <main class="site--main">
+        <article class="page--single" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <header class="u-textAlignCenter">
+                <h2 class="post--single__title" itemprop="headline">友链</h2>
+            </header>
+            <th:block th:each="group,iterStat : ${groups}">
+                <h2>[[${group.spec.displayName}]]</h2>
+                <ul class="link-items">
+                    <li class="link-item" th:each="link : ${group.links}">
+                        <a class="link-item-inner effect-apollo" th:href="${link.spec.url}" th:title="${link.spec.description}"
+                            target="_blank">
+                            <span class="sitename">
+                                <strong>[[${link.spec.displayName}]]</strong>[[${link.spec.description}]]
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </th:block>
+            
+        </article>
+    </main>
+</th:block>
+
+</html>

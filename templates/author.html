@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+    th:replace="~{modules/layout :: layout(_content = ~{::content},_title = ${author.spec.displayName})}">
+<th:block th:fragment="content">
+    <main class="site--main">
+        <th:block th:replace="~{modules/template-parts/content :: content}"></th:block>
+        <th:block th:replace="~{modules/template-parts/pagination :: pagination('/authors/'+${author.spec.displayName},${posts})}"></th:block>
+    </main>
+</th:block>
+
+</html>

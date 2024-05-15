@@ -1,0 +1,31 @@
+<th:block th:fragment="pagination(path,pageInfo)">
+    <nav class="navigation " aria-label="文章" th:unless="${false}">
+        <h2 class="screen-reader-text">文章导航</h2>
+        <div class="nav-links">
+            <th:block th:if="${pageInfo.page > 3}">
+                <a class="page-numbers" th:href="${path+'/page/1'}">1</a>
+                <span class="page-numbers dots" th:if="${pageInfo.page != 4}">…</span>
+            </th:block>
+
+            <th:block th:each="index:${#numbers.sequence(pageInfo.page-2,pageInfo.page+2)}">
+                <span aria-current="page" class="page-numbers current" th:if="${pageInfo.page} == ${index}"
+                    th:text="${pageInfo.page}"></span>
+                <a class="page-numbers" th:unless="${pageInfo.page == index}"
+                    th:if="${index > 0 && index <= pageInfo.totalPages}" th:href="${path+'/page/'+index}"
+                    th:text="${index}"></a>
+            </th:block>
+
+            <th:block th:if="${pageInfo.totalPages - pageInfo.page > 2}">
+                <span class="page-numbers dots" th:if="${pageInfo.totalPages - pageInfo.page != 3}">…</span>
+                <a class="page-numbers" th:href="${path+'/page/'+pageInfo.totalPages}"
+                    th:text="${pageInfo.totalPages}"></a>
+            </th:block>
+        </div>
+    </nav>
+    <!-- <th:block th:if="${theme.config.feature.loadmore}">
+        <div class="nav-links">
+            <span class="loadmore">加载更多</span>
+        </div>
+    </th:block> -->
+
+</th:block>

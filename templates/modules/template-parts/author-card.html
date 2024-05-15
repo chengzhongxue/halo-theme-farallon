@@ -1,0 +1,10 @@
+<div class="author--card" th:if="${theme.config.singluar.bio}">
+    <img alt="" th:src="${post.owner.avatar}"
+    class="avatar avatar-64 photo" height="64" width="64" decoding="async">
+    <div class="author--name" th:text="${post.owner.displayName}"></div>
+    <div class="author--description" th:text="${post.owner.bio}"></div>
+    <div class="author--sns" th:if="${theme.config.singluar.author_sns}">
+        <th:block th:replace="~{modules/template-parts/sns}" />
+    </div>
+
+</div>

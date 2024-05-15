@@ -1,0 +1,16 @@
+<nav class="navigation post-navigation is-active" aria-label="文章" th:if="${theme.config.singluar.post_navigation}">
+    <div class="nav-links" th:with="postCursor = ${postFinder.cursor(post.metadata.name)}">
+        <div class="nav-previous" th:if="${postCursor.hasPrevious()}">
+            <a th:href="@{${postCursor.previous.status.permalink}}" rel="prev">
+                <span class="meta-nav">上一篇</span>
+                <span class="post-title" th:text="${postCursor.previous.spec.title}"></span>
+            </a>
+        </div>
+        <div class="nav-next" th:if="${postCursor.hasNext()}">
+            <a th:href="@{${postCursor.next.status.permalink}}" rel="next">
+                <span class="meta-nav">下一篇</span>
+                <span class="post-title" th:text="${postCursor.next.spec.title}"></span>
+            </a>
+        </div>
+    </div>
+</nav>
