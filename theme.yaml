@@ -15,7 +15,7 @@ spec:
         file: category-travel.html
   description: Farallon是一个简单的单列halo主题，具有完美的性能和优雅的设计
   logo: /themes/theme-farallon/assets/images/favicon.png
-  homepage: https://github.com/chengzhongxue/halo-theme-farallon
+  homepage: https://www.halo.run/store/apps/app-yiptz
   repo: https://github.com/chengzhongxue/halo-theme-farallon
   issues: https://github.com/chengzhongxue/halo-theme-farallon/issues
   settingName: "theme-farallon-setting"

@@ -13,7 +13,7 @@
     </header>
     <main class="site--main">
         <th:block th:replace="~{modules/template-parts/content :: content}"></th:block>
-        <th:block th:replace="~{modules/template-parts/pagination :: pagination('/categories/',${posts})}"></th:block>
+        <th:block th:replace="~{modules/template-parts/pagination :: pagination(${category.status.permalink},${posts})}"></th:block>
     </main>
 </th:block>
 

@@ -17,7 +17,7 @@
             <th:block th:replace="~{modules/template-parts/content-card :: content-card}"></th:block>
         </div>
 
-        <th:block th:replace="~{modules/template-parts/pagination :: pagination('/categories/',${posts})}"></th:block>
+        <th:block th:replace="~{modules/template-parts/pagination :: pagination(${category.status.permalink},${posts})}"></th:block>
     </main>
 </th:block>
 

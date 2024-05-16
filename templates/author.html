@@ -4,7 +4,7 @@
 <th:block th:fragment="content">
     <main class="site--main">
         <th:block th:replace="~{modules/template-parts/content :: content}"></th:block>
-        <th:block th:replace="~{modules/template-parts/pagination :: pagination('/authors/'+${author.spec.displayName},${posts})}"></th:block>
+        <th:block th:replace="~{modules/template-parts/pagination :: pagination('/authors/'+${author.metadata.name},${posts})}"></th:block>
     </main>
 </th:block>
 

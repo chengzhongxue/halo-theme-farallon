@@ -44,7 +44,8 @@
                 </th:block>
             </div>
         </div>
-        <a th:href="@{${post.status.permalink}}" th:aria-label="${post.spec.title}" class="cover--link" th:if="${!theme.config.feature.hide_home_cover}">
+        <a th:href="@{${post.status.permalink}}" th:aria-label="${post.spec.title}" class="cover--link"
+           th:if="${!theme.config.feature.hide_home_cover && (not #strings.isEmpty(post.spec.cover) || not #strings.isEmpty(theme.config.feature.default_thumbnail))}">
             <img th:src="${not #strings.isEmpty(post.spec.cover) ? post.spec.cover : theme.config.feature.default_thumbnail}" class="cover" th:alt="${post.spec.title}" />
         </a>
     </article>
