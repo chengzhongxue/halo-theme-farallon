@@ -16,6 +16,7 @@
 Farallon 主题支持以下 Halo 插件：
 
 - [X] 友情链接（/links）：https://halo.run/store/apps/app-hfbQg
+- [X] 豆瓣（/douban）：https://www.halo.run/store/apps/app-srBOL
 
 为了获得更好的体验，你还可以安装以下插件（如果需要）：
 - highlight.js 代码高亮：https://halo.run/store/apps/app-sqpgf
@@ -27,7 +28,8 @@ Farallon 主题支持以下 Halo 插件：
 - [X] [代码高亮/语言/复制](https://github.com/halo-sigs/plugin-highlightjs)（插件）
 - [x] [文章搜索](https://github.com/halo-sigs/plugin-search-widget)（插件）
 - [X] [评论系统](https://github.com/halo-sigs/plugin-comment-widget)（插件）
-- [x] [友情链接](https://github.com/halo-sigs/plugin-links)
+- [x] [友情链接](https://github.com/halo-sigs/plugin-links)（插件）
+- [x] [豆瓣](https://github.com/chengzhongxue/plugin-douban)（插件）
 - [x] 其他功能
 
 ### TODO
