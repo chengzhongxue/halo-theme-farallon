@@ -5,6 +5,24 @@
 <head th:replace="~{modules/head :: head}"></head>
 
 <body>
+  <!-- 豆瓣 -->
+  <style>
+    .template--douban {
+      padding: 50px 75px;
+    }
+
+    .doulist-item {
+      background: linear-gradient(89.99999999999999deg,
+          rgba(255, 233, 244, 0.3) 0%,
+          rgba(234, 243, 255, 0.5) 100%);
+      border-color: var(--farallon-border-color);
+      color: var(--farallon-text-gray);
+    }
+
+    .u-hide {
+      display: none;
+    }
+  </style>
   <script th:if="${theme.config.feature.darkmode}">
     window.DEFAULT_THEME = "auto";
     if (localStorage.getItem("theme") == null) {
@@ -50,9 +68,9 @@
   <script type="text/javascript" id="farallon-script-js-extra">
     var obvInit = {
       "post_id": "[(${post.metadata.name})]",
-      "darkmode": [(${theme.config.feature.darkmode})],
+      "darkmode": [(${ theme.config.feature.darkmode })],
       "version": "[(${theme.spec.version})]",
-      "hide_home_cover": [(${theme.config.feature.hide_home_cover})],
+      "hide_home_cover": [(${ theme.config.feature.hide_home_cover })],
       "timeFormat": {
         "second": "\u79d2\u524d",
         "seconds": "\u79d2\u524d",
@@ -73,7 +91,8 @@
   </script>
   <script type="text/javascript" th:src="@{/assets/js/app.min.js?v={version}(version=${theme.spec.version})}"
     id="farallon-script-js"></script>
-  <script type="text/javascript" id="farallon-script-js-after" th:if="${not #strings.isEmpty(theme.config.custom.javascript)}"
+  <script type="text/javascript" id="farallon-script-js-after"
+    th:if="${not #strings.isEmpty(theme.config.custom.javascript)}"
     th:utext="${theme.config.custom.javascript}"></script>
 </body>
 
