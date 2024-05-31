@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+    th:replace="~{modules/layout :: layout(_content = ~{::content},_title = '分类')}">
+<th:block th:fragment="content">
+    <div class="template--terms">
+        <article class="post--single__douban">
+            <header class="u-textAlignCenter">
+                <h2 class="post--single__title">分类</h2>
+            </header>
+            <div class="collectionCard">
+                <a th:each="categoryItem : ${categoryFinder.listAll()}" class="collectionCard--item"
+                    th:title="${categoryItem.spec.displayName}" aria-label="${categoryItem.spec.displayName}"
+                    th:href="@{${categoryItem.status.permalink}}"
+                    th:data-count="${categoryItem.status.visiblePostCount}">
+                    <img th:if="${not #strings.isEmpty(categoryItem.spec.cover)}" class="collectionCard--image"
+                        th:alt="${categoryItem.spec.displayName}" th:aria-label="${categoryItem.spec.displayName}"
+                        th:src="${categoryItem.spec.cover}">
+                    <div class="collectionCard--meta">
+                        <div class="collectionCard--title" th:text="${categoryItem.spec.displayName}"></div>
+                        <div class="collectionCard--description" th:text="${categoryItem.spec.description}"></div>
+                    </div>
+                </a>
+            </div>
+        </article>
+    </div>
+</th:block>
+
+</html>

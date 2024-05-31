@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+    th:replace="~{modules/layout :: layout(_content = ~{::content},_title = '标签')}">
+<th:block th:fragment="content">
+    <div class="template--terms">
+        <article class="post--single__douban">
+            <header class="u-textAlignCenter">
+                <h2 class="post--single__title">标签</h2>
+            </header>
+            <div class="tagCard" th:with="tags = ${tagFinder.listAll()}">
+                <a th:each="tagItem : ${tags}" 
+                  class="tagCard--item" 
+                  th:title="${tagItem.spec.displayName}" 
+                  th:aria-label="${tagItem.spec.displayName}" 
+                  th:href="@{${tagItem.status.permalink}}" 
+                  th:data-count="${tagItem.status.visiblePostCount}">
+                    <div class="tagCard--title" th:text="${tagItem.spec.displayName}"></div>
+                </a>
+            </div>
+        </article>
+    </div>
+</th:block>
+
+</html>
