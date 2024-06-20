@@ -3,7 +3,7 @@
     th:replace="~{modules/layout :: layout(_content = ~{::content},_title = '文章归档')}">
 <th:block th:fragment="content">
     <main class="page--archive">
-        <th:block th:each="archive : ${archives.items}">
+        <th:block th:each="archive : ${postFinder.archives(1, 0).items}">
             <div class="archive--list__year">
                 <h2 class="archive--title__year " th:text="${archive.year}"></h2>
                 <ul class="archive--list" th:each="month : ${archive.months}" th:data-year="|${archive.year} - ${month.month}|">
@@ -16,7 +16,6 @@
                 </ul>
             </div>
         </th:block>
-        <th:block th:replace="~{modules/template-parts/pagination :: pagination('/archives',${archives})}"></th:block>
     </main>
 </th:block>
 

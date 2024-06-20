@@ -33,7 +33,7 @@
                     <th:block th:each="category,iter : ${post.categories}">
                         <a th:href="@{${category.status.permalink}}" rel="category tag"
                             th:text="${category.spec.displayName}"></a>
-                        <th:block th:if="${iter.index>0 && iter.count<category.size}">,</th:block>
+                        <th:block th:if="${iter.index>0 && iter.count<post.categories.size}">,</th:block>
                     </th:block>
                 </th:block>
                 <th:block th:if="${theme.config.feature.home_like}">
