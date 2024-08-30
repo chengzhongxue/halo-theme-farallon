@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org" th:fragment="layout(_content,_title)"
+<html lang="en" theme xmlns:th="https://www.thymeleaf.org" th:fragment="layout(_content,_title)"
   th:with="site_title = ${not #strings.isEmpty(_title) ?  _title+' '+theme.config.basic.title_sep+' '+site.title  :  #strings.isEmpty(site.subtitle) ? site.title :  site.title +' - ' +site.subtitle }">
 
 <head th:replace="~{modules/head :: head}"></head>
@@ -24,15 +24,19 @@
     }
   </style>
   <script th:if="${theme.config.feature.darkmode}">
+    const root = document.documentElement;
     window.DEFAULT_THEME = "auto";
     if (localStorage.getItem("theme") == null) {
       localStorage.setItem("theme", window.DEFAULT_THEME);
     }
     if (localStorage.getItem("theme") == "dark") {
       document.querySelector("body").classList.add("dark");
+      root.setAttribute("theme", 'dark');
+
     }
     if (localStorage.getItem("theme") == "auto") {
       document.querySelector("body").classList.add("auto");
+      root.removeAttribute("theme");
     }
   </script>
   <div class="main">

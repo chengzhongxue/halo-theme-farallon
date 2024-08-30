@@ -3,7 +3,7 @@
         th:each="post,iter : ${postItems}">
         <a th:href="@{${post.status.permalink}}" th:aria-label="${post.spec.title}" class="cover--link"
             th:if="${not #strings.isEmpty(post.spec.cover)}">
-            <img th:src="${post.spec.cover}"
+            <img th:src="${thumbnail.gen(post.spec.cover, 'm')}"
                 class="cover" th:alt="${post.spec.title}" />
         </a>
         <div class="content">

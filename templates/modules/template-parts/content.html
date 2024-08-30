@@ -51,7 +51,7 @@
         </div>
         <a th:href="@{${post.status.permalink}}" th:aria-label="${post.spec.title}" class="cover--link"
             th:if="${not #strings.isEmpty(post.spec.cover)}">
-            <img th:src="${post.spec.cover}"
+            <img th:src="${thumbnail.gen(post.spec.cover, 's')}"
                 class="cover" th:alt="${post.spec.title}" />
         </a>
     </article>

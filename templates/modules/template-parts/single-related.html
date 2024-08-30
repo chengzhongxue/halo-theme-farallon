@@ -8,7 +8,7 @@
                 <div class="post--single__related__item" th:if="${!containsTitle ? iterStat.index <6 : true}">
                     <a th:href="@{${recommandPost.status.permalink}}" th:aria-label="${recommandPost.spec.title}">
                         <div class="post--single__related__item__img">
-                            <img th:if="${not #strings.isEmpty(recommandPost.spec.cover)}" th:src="${recommandPost.spec.cover}" class="cover"
+                            <img th:if="${not #strings.isEmpty(recommandPost.spec.cover)}" th:src="${thumbnail.gen(recommandPost.spec.cover, 'm')}" class="cover"
                                 th:alt="${recommandPost.spec.title}">
                         </div>
                         <div class="post--single__related__item__title" th:text="${recommandPost.spec.title}"></div>

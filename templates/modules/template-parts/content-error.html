@@ -1,7 +1,7 @@
 <th:block th:with='topGroupPosts = ${postFinder.list(1,6)}' th:fragment="content-error">
     <article class="post--error" itemtype="http://schema.org/Article" itemscope="itemscope"
         th:each="post : ${topGroupPosts}">
-        <img th:if="${not #strings.isEmpty(post.spec.cover)}" th:src="${post.spec.cover}" class="cover"
+        <img th:if="${not #strings.isEmpty(post.spec.cover)}" th:src="${thumbnail.gen(post.spec.cover, 'm')}" class="cover"
             th:alt="${post.spec.title}">
         <div class="content">
             <h2 class="post--title" itemprop="headline">

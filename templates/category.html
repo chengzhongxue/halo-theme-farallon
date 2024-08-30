@@ -3,7 +3,7 @@
     th:replace="~{modules/layout :: layout(_content = ~{::content},_title = ${category.spec.displayName})}">
 <th:block th:fragment="content">
     <header class="archive-header">
-        <img th:if="${not #strings.isEmpty(category.spec.cover)}" th:src="${category.spec.cover}"
+        <img th:if="${not #strings.isEmpty(category.spec.cover)}" th:src="${thumbnail.gen(category.spec.cover, 's')}"
             th:alt="${category.spec.displayName}" class="archive-header-image">
         <div class="archive-header-content">
             <h1 class="archive-title" th:text="${category.spec.displayName}"></h1>
