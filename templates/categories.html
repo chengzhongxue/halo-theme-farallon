@@ -14,7 +14,7 @@
                     th:data-count="${categoryItem.status.visiblePostCount}">
                     <img th:if="${not #strings.isEmpty(categoryItem.spec.cover)}" class="collectionCard--image"
                         th:alt="${categoryItem.spec.displayName}" th:aria-label="${categoryItem.spec.displayName}"
-                        th:src="${thumbnail.gen(categoryItem.spec.cover, 's')}">
+                        th:src="${thumbnail.gen(categoryItem.spec.cover, 'm')}">
                     <div class="collectionCard--meta">
                         <div class="collectionCard--title" th:text="${categoryItem.spec.displayName}"></div>
                         <div class="collectionCard--description" th:text="${categoryItem.spec.description}"></div>
