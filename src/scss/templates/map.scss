@@ -37,6 +37,7 @@
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
     list-style: none;
+    padding-top: 15px;
 }
 
 .link-item {
@@ -67,4 +68,15 @@
 .markerPro--post {
     padding-top: 30px;
     padding-bottom: 30px;
+}
+
+.marker--tips {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    top: 10px;
+    left: 10px;
+    font-size: 12px;
+    border-radius: 999rem;
+    padding: 1px 8px;
 }
