@@ -141,6 +141,10 @@
             &.sns {
                 fill: none;
                 stroke: var(--farallon-text-color);
+                &:hover {
+                    stroke: var(--farallon-hover-color);
+                    fill: none;
+                }
             }
         }
     }
