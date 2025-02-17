@@ -69,7 +69,7 @@ gulp
 
 如果你对主题有什么建议或者意见，欢迎提 PR & issue。
 
-<img width="360" src="https://api.minio.yyds.pink/halo-docs/2024/04/hao-2.jpg" />
+<img width="360" src="https://api.minio.yyds.pink/kunkunyu/files/2025/02/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20250212142105-pbceif.jpg" />
 
 
 ### 赞助
