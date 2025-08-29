@@ -14,7 +14,7 @@
                 </a>
             </h2>
             <th:block
-                th:with="excerpt = ${#strings.length(post.status.excerpt) > 150 ? 150 : #strings.length(post.status.excerpt)}">
+                th:with="excerpt = ${#strings.length(post.status.excerpt) > 90 ? 90 : #strings.length(post.status.excerpt)}">
                 <div class="description" itemprop="about"
                     th:text="${#strings.substring(post.status.excerpt,0,excerpt)}">
                 </div>

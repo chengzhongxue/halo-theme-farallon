@@ -4,7 +4,7 @@
 
 <head th:replace="~{modules/head :: head}"></head>
 
-<body>
+<body th:classappend="${theme.config.feature.clean_mode ? 'is-cleanMode' : ''">
   <!-- 豆瓣 -->
   <style>
     .template--douban {

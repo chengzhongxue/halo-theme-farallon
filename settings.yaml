@@ -69,6 +69,11 @@ spec:
           value: false
           help: 首页展示作者信息
         - $formkit: checkbox
+          name: clean_mode
+          label: 禁用渐变效果
+          value: false
+          help: 禁用渐变效果
+        - $formkit: checkbox
           name: home_cat
           label: 分类信息
           value: false
