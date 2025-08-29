@@ -8,6 +8,8 @@
 
     --farallon-background-white: rgba(255, 255, 255, 1);
     --farallon-background-gray: rgba(250, 250, 250, 1);
+    --farallon-background-opacity: 0.9;
+    --farallon-background-white-opacity: rgba(255, 255, 255, var(--farallon-background-opacity));
 
     --farallon-griedent-start: #007cf0;
     --farallon-griedent-end: #00dfd8;
@@ -23,6 +25,14 @@
     --farallon-text-size-smallest: 12px;
 }
 
+.db--container,
+.doulist-item {
+    --db--text-color: var(--farallon-text-color);
+    --db--text-color-light: var(--farallon-text-light);
+    --db--background-gray: var(--farallon-background-gray);
+    --db-border-color: var(--farallon-border-color);
+}
+
 @media (prefers-color-scheme: dark) {
     .auto {
         --farallon-main-color: rgba(253, 186, 116, 1);
@@ -34,6 +44,7 @@
 
         --farallon-background-white: #1e1e1e;
         --farallon-background-gray: #000;
+        --farallon-background-white-opacity: rgba(30, 30, 30, var(--farallon-background-opacity));
 
         --farallon-griedent-start: #007cf0;
         --farallon-griedent-end: #00dfd8;
@@ -93,6 +104,7 @@
         }
 
         .post--single__related__item,
+        .post--single__related__status,
         .post--item,
         .link-item,
         .post--card {
@@ -123,7 +135,15 @@
             input,
             textarea {
                 background-color: rgba(63, 63, 70, 0.15);
-                border-color: rgb(63 63 70/1);
+                border-color: #3f3f46;
+            }
+        }
+
+        .comment-form-cookies-consent {
+            label {
+                &::before {
+                    border-color: #3f3f46;
+                }
             }
         }
     }
@@ -139,6 +159,7 @@
 
     --farallon-background-white: #1e1e1e;
     --farallon-background-gray: #000;
+    --farallon-background-white-opacity: rgba(30, 30, 30, var(--farallon-background-opacity));
 
     --farallon-griedent-start: #007cf0;
     --farallon-griedent-end: #00dfd8;
@@ -201,6 +222,7 @@
         background: linear-gradient(180deg, #1e1e1e, #121212);
     }
     .post--single__related__item,
+    .post--single__related__status,
     .post--item,
     .link-item,
     .post--card {
@@ -227,7 +249,15 @@
         input,
         textarea {
             background-color: rgba(63, 63, 70, 0.15);
-            border-color: rgb(63 63 70/1);
+            border-color: #3f3f46;
+        }
+    }
+
+    .comment-form-cookies-consent {
+        label {
+            &::before {
+                border-color: #3f3f46;
+            }
         }
     }
 }
@@ -235,7 +265,7 @@
 @font-face {
     font-family: 'Open Sans';
     src: url('../fonts/OpenSans-Regular.woff2') format('woff2'),
-        url('../fonts/OpenSans-Regular.woff') format('woff');
+    url('../fonts/OpenSans-Regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -244,7 +274,7 @@
 @font-face {
     font-family: 'Open Sans';
     src: url('../fonts/OpenSans-Bold.woff2') format('woff2'),
-        url('../fonts/OpenSans-Bold.woff') format('woff');
+    url('../fonts/OpenSans-Bold.woff') format('woff');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -253,7 +283,7 @@
 @font-face {
     font-family: 'Open Sans';
     src: url('../fonts/OpenSans-Light.woff2') format('woff2'),
-        url('../fonts/OpenSans-Light.woff') format('woff');
+    url('../fonts/OpenSans-Light.woff') format('woff');
     font-weight: 200;
     font-style: normal;
     font-display: swap;
@@ -262,7 +292,7 @@
 @font-face {
     font-family: 'Open Sans';
     src: url('../fonts/OpenSans-Medium.woff2') format('woff2'),
-        url('../fonts/OpenSans-Medium.woff') format('woff');
+    url('../fonts/OpenSans-Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -271,7 +301,7 @@
 @font-face {
     font-family: 'mrs_saint_delafieldregular';
     src: url('../fonts/mrssaintdelafield-regular-webfont.woff2') format('woff2'),
-        url('../fonts/mrssaintdelafield-regular-webfont.woff') format('woff');
+    url('../fonts/mrssaintdelafield-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
