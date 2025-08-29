@@ -14,13 +14,11 @@
         .db--nav {
             padding-top: 10px;
         }
+
         .db--list {
             .db--item {
                 margin-right: 12px;
             }
-        }
-        .post--single__title {
-            // text-align: center;
         }
     }
 
@@ -45,10 +43,12 @@
         align-items: center;
         justify-content: center;
         padding: 20px 0;
+
         .button--like {
             svg {
                 fill: var(--farallon-text-gray);
             }
+
             &:hover,
             &.is-active {
                 svg {
@@ -62,34 +62,80 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 20px;
+
+        &__status {
+            font-size: 14px;
+            background-color: var(--farallon-background-gray);
+            border-radius: 5px;
+            padding: 10px;
+            border: 1px solid var(--farallon-border-color-light);
+
+            &:hover {
+                background-color: #fafafa;
+                background: linear-gradient(
+                        89.99999999999999deg,
+                        rgba(255, 233, 244, 0.3) 0%,
+                        rgba(234, 243, 255, 0.5) 100%
+                );
+            }
+
+            a {
+                color: var(--farallon-text-gray);
+                p {
+                    line-height: 1.6;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            .meta {
+                font-size: 12px;
+                display: flex;
+                align-items: center;
+                margin-top: 2px;
+
+                svg {
+                    fill: var(--farallon-text-gray);
+                    margin-right: 5px;
+                }
+            }
+        }
+
         &__item {
             padding: 10px;
             border: 1px solid var(--farallon-border-color);
             border-radius: 10px;
             display: flex;
             flex-direction: column;
+
             .cover {
                 border-radius: 8px;
                 aspect-ratio: 2/1;
                 object-fit: cover;
                 width: 100%;
             }
+
             &__title {
                 font-size: 14px;
                 font-weight: bold;
                 line-height: 1.4;
                 margin-bottom: 5px;
             }
+
             &:hover {
                 background-color: #fafafa;
                 background: linear-gradient(
-                    89.99999999999999deg,
-                    rgba(255, 233, 244, 0.3) 0%,
-                    rgba(234, 243, 255, 0.5) 100%
+                        89.99999999999999deg,
+                        rgba(255, 233, 244, 0.3) 0%,
+                        rgba(234, 243, 255, 0.5) 100%
                 );
             }
+
             .meta {
-                font-size: 12px;
+                font-size: var(--farallon-text-size-smallest);
                 color: var(--farallon-text-gray);
                 line-height: 1;
             }
@@ -114,9 +160,11 @@
     padding: 30px 0;
     border-top: 1px solid var(--farallon-border-color-light);
     margin-top: 20px;
+
     .avatar {
         border-radius: 100%;
     }
+
     .author--name {
         font-weight: bold;
         margin-top: 10px;
@@ -132,22 +180,27 @@
         margin-top: 12px;
         display: flex;
         align-items: center;
+
         a {
             margin: 0 10px 0 0;
             &:last-child {
                 margin-right: 0;
             }
         }
+
         svg {
             fill: var(--farallon-text-color);
+            width: 24px;
+            height: 24px;
+
             &:hover {
                 fill: var(--farallon-hover-color);
             }
-            width: 24px;
-            height: 24px;
+
             &.sns {
                 fill: none;
                 stroke: var(--farallon-text-color);
+
                 &:hover {
                     stroke: var(--farallon-hover-color);
                     fill: none;
@@ -162,6 +215,7 @@
     align-items: center;
     flex-wrap: wrap;
     padding: 15px 0 5px;
+
     a {
         margin-right: 10px;
         margin-bottom: 10px;
@@ -170,6 +224,7 @@
         padding: 2px 12px;
         border-radius: 5px;
         color: var(--farallon-text-gray);
+
         &:hover {
             background-color: #e0e0e0;
         }
@@ -180,17 +235,21 @@
     border: 0;
     background-color: rgba(0, 0, 0, 0);
     cursor: pointer;
+
     &.is-active {
         svg {
             fill: var(--farallon-main-color);
         }
+
         .icon--active {
             display: block;
         }
+
         .icon--default {
             display: none;
         }
     }
+
     .icon--active {
         display: none;
     }
@@ -204,44 +263,50 @@
     padding: 15px 0;
     display: flex;
     align-items: center;
+
     &__list {
         border-top: 1px solid var(--farallon-border-color-light);
     }
+
     &__image {
         img {
             border-radius: 4px;
             height: 64px;
             object-fit: cover;
             width: 64px;
-            // border: 1px solid var(--farallon-border-color);
         }
         margin-right: 15px;
         width: 64px;
         flex: 0 0 auto;
         display: flex;
     }
+
     &__content {
         flex: 1 1 auto;
     }
+
     &:hover {
         .category--card__title {
             color: var(--farallon-hover-color);
         }
     }
+
     &__title {
         font-size: 18px;
         font-weight: bold;
         margin-bottom: 10px;
         line-height: 1;
     }
+
     &__description {
-        font-size: 14px;
+        font-size: var(--farallon-text-size-normal);
         color: var(--farallon-text-gray);
         line-height: 1.2;
     }
 
     & + & {
         position: relative;
+
         &::before {
             position: absolute;
             left: 15px;
@@ -258,8 +323,10 @@
     .author--card {
         padding: 20px 0;
     }
+
     .category--card {
         padding: 12px 0;
+
         &__image {
             width: 48px;
             img {
@@ -267,9 +334,11 @@
                 width: 48px;
             }
         }
+
         &__title {
             font-size: 16px;
         }
+
         &__description {
             font-size: 12px;
         }
@@ -278,8 +347,9 @@
 
 .header--centered {
     text-align: center;
+    padding-bottom: 15px;
+
     .post--single__title {
         margin-bottom: 0px;
     }
-    padding-bottom: 15px;
 }
