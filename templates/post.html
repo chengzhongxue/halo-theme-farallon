@@ -22,6 +22,10 @@
         </details>
         <th:block th:utext="${post.content.content}"></th:block>
       </div>
+      <div class="post--single__update" th:if="${theme.config.singluar.updateTime && not #strings.isEmpty(post.status.lastModifyTime)}">
+        <span class="text">更新于</span>
+        <time th:datetime="${post.status.lastModifyTime}" itemprop="dateModified" th:text="${#dates.format(post.status.lastModifyTime,'yyyy-MM-dd')}"></time>
+      </div>
       <div class="post--single__action" th:if="${theme.config.singluar.postlike}">
         <button class="button--like like-btn" aria-label="like the post">
           <svg class="icon--active" viewBox="0 0 1024 1024" width="32" height="32">

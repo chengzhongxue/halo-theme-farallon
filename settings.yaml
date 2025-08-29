@@ -101,6 +101,11 @@ spec:
           value: false
           help: 开启相关文章
         - $formkit: checkbox
+          name: updateTime
+          label: 文章更新时间
+          value: false
+          help: 展示文章更新时间
+        - $formkit: checkbox
           name: postlike
           label: 文章点赞
           value: false
